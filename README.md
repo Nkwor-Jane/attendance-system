@@ -1,6 +1,6 @@
 # Attendance Management System
 
-An Attendance Management System is web-based software application designed and developed for recording, tracking and storing students’ attendance in institutions.The proposed system uses a generated QR code which can be scanned with the mobile phone of students. This process does not require much action from the lecturer except displaying the generated QR code.
+An Attendance Management System is web-based software application designed and developed for recording, tracking and storing students’ attendance in institutions. The proposed system uses a generated QR code which can be scanned with the mobile phone of students. This process does not require much action from the lecturer except displaying the generated QR code.
 
 ## Format
 
