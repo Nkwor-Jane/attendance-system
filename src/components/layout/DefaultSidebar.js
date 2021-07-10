@@ -2,7 +2,7 @@ import React from 'react';
 
 const DefaultSidebar = () => {
   return (
-    <div class="sidebar sidebar-style-2 my-text-sidebar">
+    <div className="sidebar sidebar-style-2 my-text-sidebar">
       <ul>
         <li>A</li>
         <li>.</li>

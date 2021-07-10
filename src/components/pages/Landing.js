@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import AuthContext from '../../context/auth/authContext';
 
-const Landing = () => {
+const Landing = (props) => {
+  const authContext = useContext(AuthContext);
+
+  const { isAuthenticated } = authContext;
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push('/dashboard');
+    }
+    // eslint-disable-next-line
+  }, [isAuthenticated, props.history]);
   return (
     <div className="content">
       <div className="panel-header bg-primary-gradient" style={{ margin: '100px' }}>

@@ -1,22 +1,22 @@
 import React, { Fragment, useContext } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
-import UserContext from '../../context/user/userContext';
 import DefaultSidebar from './DefaultSidebar';
+import AuthContext from '../../context/auth/authContext';
 
 const Header = () => {
-  const userContext = useContext(UserContext);
-  const { accessToken } = userContext;
+  const authContext = useContext(AuthContext);
+  const { isAuthenticated } = authContext;
 
   return (
     <div className="main-header">
       <div className="logo-header" data-background-color="blue">
-        {accessToken && (
+        {isAuthenticated && (
           <a href="index.html" className="logo">
             <b style={{ color: 'white', fontSize: '35px' }}>A.M.S</b>
           </a>
         )}
-        {accessToken && (
+        {isAuthenticated && (
           <Fragment>
             <button
               className="navbar-toggler sidenav-toggler ml-auto"
@@ -42,7 +42,7 @@ const Header = () => {
         )}
       </div>
       <Navbar />
-      {accessToken ? <Sidebar /> : <DefaultSidebar />}
+      {isAuthenticated ? <Sidebar /> : <DefaultSidebar />}
     </div>
   );
 };

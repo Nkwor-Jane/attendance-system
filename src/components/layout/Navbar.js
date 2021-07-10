@@ -1,14 +1,14 @@
 import React, { Fragment, useContext } from 'react';
-import UserContext from '../../context/user/userContext';
+import AuthContext from '../../context/auth/authContext';
 
 const Navbar = () => {
-  const userContext = useContext(UserContext);
-  const { accessToken } = userContext;
+  const authContext = useContext(AuthContext);
+  const { isAuthenticated } = authContext;
 
   return (
     <Fragment>
       <nav className="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
-        {accessToken && (
+        {isAuthenticated && (
           <div className="container-fluid">
             <div className="collapse" id="search-nav">
               <form className="navbar-left navbar-form nav-search mr-md-3">
