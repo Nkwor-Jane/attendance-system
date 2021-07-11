@@ -1,27 +1,16 @@
 import React, { Fragment, useContext } from 'react';
 import AuthContext from '../../context/auth/authContext';
+import { stringToUpperCase } from '../../utils/stringModifier';
 
 const Navbar = () => {
   const authContext = useContext(AuthContext);
-  const { isAuthenticated } = authContext;
+  const { isAuthenticated, user, logout } = authContext;
 
   return (
     <Fragment>
       <nav className="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
         {isAuthenticated && (
           <div className="container-fluid">
-            <div className="collapse" id="search-nav">
-              <form className="navbar-left navbar-form nav-search mr-md-3">
-                <div className="input-group">
-                  <div className="input-group-prepend">
-                    <button type="submit" className="btn btn-search pr-1">
-                      <i className="fa fa-search search-icon"></i>
-                    </button>
-                  </div>
-                  <input type="text" placeholder="Search ..." className="form-control" />
-                </div>
-              </form>
-            </div>
             <ul className="navbar-nav topbar-nav ml-md-auto align-items-center">
               <li className="nav-item toggle-nav-search hidden-caret">
                 <a
@@ -34,83 +23,6 @@ const Navbar = () => {
                 >
                   <i className="fa fa-search"></i>
                 </a>
-              </li>
-              <li className="nav-item dropdown hidden-caret">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="/"
-                  id="messageDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i className="fa fa-envelope"></i>
-                </a>
-                <ul
-                  className="dropdown-menu messages-notif-box animated fadeIn"
-                  aria-labelledby="messageDropdown"
-                >
-                  <li>
-                    <div className="dropdown-title d-flex justify-content-between align-items-center">
-                      Messages
-                      <a href="/" className="small">
-                        Mark all as read
-                      </a>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="message-notif-scroll scrollbar-outer">
-                      <div className="notif-center">
-                        <a href="/">
-                          <div className="notif-img">
-                            <img src="../assets/img/jm_denis.jpg" alt="Img Profile" />
-                          </div>
-                          <div className="notif-content">
-                            <span className="subject">Jimmy Denis</span>
-                            <span className="block">How are you ?</span>
-                            <span className="time">5 minutes ago</span>
-                          </div>
-                        </a>
-                        <a href="/">
-                          <div className="notif-img">
-                            <img src="../assets/img/chadengle.jpg" alt="Img Profile" />
-                          </div>
-                          <div className="notif-content">
-                            <span className="subject">Chad</span>
-                            <span className="block">Ok, Thanks !</span>
-                            <span className="time">12 minutes ago</span>
-                          </div>
-                        </a>
-                        <a href="/">
-                          <div className="notif-img">
-                            <img src="../assets/img/mlane.jpg" alt="Img Profile" />
-                          </div>
-                          <div className="notif-content">
-                            <span className="subject">Jhon Doe</span>
-                            <span className="block">Ready for the meeting today...</span>
-                            <span className="time">12 minutes ago</span>
-                          </div>
-                        </a>
-                        <a href="/">
-                          <div className="notif-img">
-                            <img src="../assets/img/talha.jpg" alt="Img Profile" />
-                          </div>
-                          <div className="notif-content">
-                            <span className="subject">Talha</span>
-                            <span className="block">Hi, Apa Kabar ?</span>
-                            <span className="time">17 minutes ago</span>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <a className="see-all" href="/">
-                      See all messages<i className="fa fa-angle-right"></i>{' '}
-                    </a>
-                  </li>
-                </ul>
               </li>
               <li className="nav-item dropdown hidden-caret">
                 <a
@@ -246,7 +158,7 @@ const Navbar = () => {
                 >
                   <div className="avatar-sm">
                     <img
-                      src="../assets/img/profile.jpg"
+                      src={user && user.user.photo}
                       alt="..."
                       className="avatar-img rounded-circle"
                     />
@@ -258,15 +170,24 @@ const Navbar = () => {
                       <div className="user-box">
                         <div className="avatar-lg">
                           <img
-                            src="../assets/img/profile.jpg"
+                            src={user && user.user.photo}
                             alt="profile"
                             className="avatar-img rounded"
                           />
                         </div>
                         <div className="u-text">
-                          <h4>Hizrian</h4>
-                          <p className="text-muted">hello@example.com</p>
-                          <a href="profile.html" className="btn btn-xs btn-secondary btn-sm">
+                          <h4>
+                            {user &&
+                              `${
+                                stringToUpperCase(user.user.first_name) +
+                                ' ' +
+                                stringToUpperCase(user.user.last_name)
+                              } `}
+                          </h4>
+                          <p className="text-muted">
+                            {user && `${stringToUpperCase(user.user.email)}`}
+                          </p>
+                          <a href="/" className="btn btn-xs btn-secondary btn-sm">
                             View Profile
                           </a>
                         </div>
@@ -277,20 +198,14 @@ const Navbar = () => {
                       <a className="dropdown-item" href="/">
                         My Profile
                       </a>
-                      <a className="dropdown-item" href="/">
-                        My Balance
-                      </a>
-                      <a className="dropdown-item" href="/">
-                        Inbox
-                      </a>
                       <div className="dropdown-divider"></div>
                       <a className="dropdown-item" href="/">
                         Account Setting
                       </a>
                       <div className="dropdown-divider"></div>
-                      <a className="dropdown-item" href="/">
+                      <button className="dropdown-item" href="/" onClick={(e) => logout()}>
                         Logout
-                      </a>
+                      </button>
                     </li>
                   </div>
                 </ul>

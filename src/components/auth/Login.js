@@ -10,7 +10,7 @@ const Login = (props) => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
   const { setAlert } = alertContext;
-  const { loginUser, error, clearErrors, isAuthenticated, loading, setLoading } = authContext;
+  const { loginUser, error, clearErrors, isAuthenticated, loading, setLoading, user } = authContext;
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -22,7 +22,7 @@ const Login = (props) => {
       clearErrors();
     }
     // eslint-disable-next-line
-  }, [error, isAuthenticated, props.history]);
+  }, [user, error, isAuthenticated, props.history]);
 
   const {
     register,
@@ -63,7 +63,7 @@ const Login = (props) => {
                         {...register('email', { required: true })}
                       />
                       {errors.email && (
-                        <small className="form-text text-danger">Email name is required</small>
+                        <small className="form-text text-danger">Email is required</small>
                       )}
                     </div>
                     <div className={`form-group ${errors.password && 'has-error'}`}>

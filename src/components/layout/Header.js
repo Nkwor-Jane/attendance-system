@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import DefaultSidebar from './DefaultSidebar';
 import AuthContext from '../../context/auth/authContext';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const authContext = useContext(AuthContext);
@@ -12,9 +13,9 @@ const Header = () => {
     <div className="main-header">
       <div className="logo-header" data-background-color="blue">
         {isAuthenticated && (
-          <a href="index.html" className="logo">
+          <Link to="/" className="logo">
             <b style={{ color: 'white', fontSize: '35px' }}>A.M.S</b>
-          </a>
+          </Link>
         )}
         {isAuthenticated && (
           <Fragment>

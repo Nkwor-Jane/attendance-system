@@ -10,21 +10,28 @@ const Register = (props) => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
   const { setAlert } = alertContext;
-  const { registerUser, error, clearErrors, isAuthenticated, loading, setLoading } = authContext;
+  const { registerUser, error, clearErrors, isAuthenticated, loading, setLoading, registered } =
+    authContext;
 
   useEffect(() => {
     if (isAuthenticated) {
       props.history.push('/dashboard');
     }
 
-    if (error && error.email) {
-      setAlert(error.email, 'danger');
+    if (error && error.error.message.email) {
+      setAlert(error.error.message.email, 'danger');
     } else if (error) {
       setAlert('Registration Failed, Please Try Again', 'danger');
       clearErrors();
     }
+
+    if (registered) {
+      props.history.push('/setup');
+      setAlert('Registration Successful, Setup Profile!!!', 'success');
+    }
+
     // eslint-disable-next-line
-  }, [error, isAuthenticated, props.history]);
+  }, [error, isAuthenticated, registered, props.history]);
 
   const {
     register,
@@ -71,7 +78,7 @@ const Register = (props) => {
                         })}
                       />
                       {errors.email && errors.email.type === 'required' && (
-                        <small className="form-text text-danger">Email name is required</small>
+                        <small className="form-text text-danger">Email is required</small>
                       )}
                       {errors.email && errors.email.type === 'pattern' && (
                         <small className="form-text text-danger">

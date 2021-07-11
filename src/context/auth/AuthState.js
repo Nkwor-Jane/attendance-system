@@ -6,15 +6,15 @@ import setAuthToken from '../../utils/setAuthToken.js';
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
-  // USER_LOADED,
+  USER_LOADED,
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
   CLEAR_ERRORS,
   SET_LOADING,
-  LIST_DEPARTMENTS,
-  LIST_FACULTIES,
+  SET_REGISTERED,
+  REMOVE_LOADING,
 } from '../types';
 
 const AuthState = (props) => {
@@ -24,13 +24,11 @@ const AuthState = (props) => {
     loading: false,
     user: null,
     error: null,
-    faculties: [],
-    departments: [],
+    userType: localStorage.getItem('userType'),
+    registered: false,
   };
 
   const [state, dispatch] = useReducer(authReducer, initialState);
-
-  setAuthToken(localStorage.token);
 
   // loading
   const setLoading = () => {
@@ -39,24 +37,23 @@ const AuthState = (props) => {
     });
   };
 
+  // Api Token
+  const defaultToken = process.env.REACT_APP_API_TOKEN;
+
   // Backend Api Url
   const url = process.env.REACT_APP_URL;
 
-  // Load User and App Data
-  const loadData = async () => {
-    setAuthToken(localStorage.token);
+  // Load User
+  const loadUser = async () => {
+    setAuthToken(localStorage.accessToken);
 
     try {
-      const faculties = await axios.get(`${url}/faculty`);
-      const departments = await axios.get(`${url}/department`);
+      const userType = localStorage.userType;
+      const user = await axios.get(`${url}/${userType}`);
 
       dispatch({
-        type: LIST_FACULTIES,
-        payload: faculties.data,
-      });
-      dispatch({
-        type: LIST_DEPARTMENTS,
-        payload: departments.data,
+        type: USER_LOADED,
+        payload: user.data.data,
       });
     } catch (err) {
       dispatch({ type: AUTH_ERROR });
@@ -68,6 +65,7 @@ const AuthState = (props) => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + defaultToken,
       },
     };
     try {
@@ -80,9 +78,17 @@ const AuthState = (props) => {
     } catch (err) {
       dispatch({
         type: REGISTER_FAIL,
-        payload: err.response.data.error.message,
+        payload: err.response.data,
       });
     }
+  };
+
+  // Registered but no profile filled ... set registered
+  const setRegistered = (data) => {
+    dispatch({
+      type: SET_REGISTERED,
+      payload: data,
+    });
   };
 
   // Login User
@@ -90,6 +96,7 @@ const AuthState = (props) => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + defaultToken,
       },
     };
     try {
@@ -99,12 +106,20 @@ const AuthState = (props) => {
         type: LOGIN_SUCCESS,
         payload: res.data,
       });
+      loadUser();
     } catch (err) {
       dispatch({
         type: LOGIN_FAIL,
-        payload: err.response.data.error.message,
+        payload: err.response.data,
       });
     }
+  };
+
+  // remove loading
+  const removeLoading = () => {
+    dispatch({
+      type: REMOVE_LOADING,
+    });
   };
 
   // Logout
@@ -121,14 +136,16 @@ const AuthState = (props) => {
         loading: state.loading,
         user: state.user,
         error: state.error,
-        faculties: state.faculties,
-        departments: state.departments,
+        userType: state.userType,
+        registered: state.registered,
         registerUser,
-        loadData,
+        loadUser,
         loginUser,
         logout,
         clearErrors,
         setLoading,
+        setRegistered,
+        removeLoading,
       }}
     >
       {props.children}
