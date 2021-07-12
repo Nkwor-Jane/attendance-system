@@ -1,0 +1,25 @@
+.my-text-sidebar {
+  font-size: 70px;
+  text-align: center;
+  font-weight: bold;
+  background: #1572e8;
+}
+
+.my-text-sidebar ul {
+  list-style: none;
+}
+
+@media only screen and (min-width: 800px) {
+  form input {
+    width: 400px !important;
+  }
+
+  form select {
+    width: 400px !important;
+    border-radius: 5px !important;
+  }
+}
+
+a {
+  text-decoration: none !important;
+}
