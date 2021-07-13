@@ -15,6 +15,7 @@ import setAuthToken from './utils/setAuthToken';
 import Setup from './components/setup/Setup';
 import AppState from './context/app/AppState';
 import StudentState from './context/student/StudentState';
+import LecturerState from './context/lecturer/LecturerState';
 
 if (localStorage.accessToken) setAuthToken(localStorage.accessToken);
 
@@ -23,23 +24,25 @@ const App = () => {
     <AuthState>
       <AppState>
         <StudentState>
-          <AlertState>
-            <Router>
-              <Header />
-              <div className="main-panel">
-                <Switch>
-                  <Route exact path="/" component={Landing} />
-                  <PrivateRoute exact path="/dashboard" component={Dashboard} />
-                  <Route exact path="/about" component={About} />
-                  <Route exact path="/register" component={Register} />
-                  <Route exact path="/login" component={Login} />
-                  <Route exact path="/setup" component={Setup} />
-                  <Route component={Error} />
-                </Switch>
-                <Footer />
-              </div>
-            </Router>
-          </AlertState>
+          <LecturerState>
+            <AlertState>
+              <Router>
+                <Header />
+                <div className="main-panel">
+                  <Switch>
+                    <Route exact path="/" component={Landing} />
+                    <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                    <Route exact path="/about" component={About} />
+                    <Route exact path="/register" component={Register} />
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/setup" component={Setup} />
+                    <Route component={Error} />
+                  </Switch>
+                  <Footer />
+                </div>
+              </Router>
+            </AlertState>
+          </LecturerState>
         </StudentState>
       </AppState>
     </AuthState>

@@ -12,7 +12,7 @@ const Navbar = () => {
         {isAuthenticated && (
           <div className="container-fluid">
             <ul className="navbar-nav topbar-nav ml-md-auto align-items-center">
-              <li className="nav-item toggle-nav-search hidden-caret">
+              {/* <li className="nav-item toggle-nav-search hidden-caret">
                 <a
                   className="nav-link"
                   data-toggle="collapse"
@@ -23,7 +23,7 @@ const Navbar = () => {
                 >
                   <i className="fa fa-search"></i>
                 </a>
-              </li>
+              </li> */}
               <li className="nav-item dropdown hidden-caret">
                 <a
                   className="nav-link dropdown-toggle"

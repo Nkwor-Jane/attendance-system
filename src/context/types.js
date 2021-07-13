@@ -21,3 +21,4 @@ export const SET_DATA_ERROR = 'SET_DATA_ERROR';
 export const SET_UPLOADING = 'SET_UPLOADING';
 export const SET_UPLOAD_URL = 'SET_UPLOAD_URL';
 export const STUDENT_DATA = 'STUDENT_DATA';
+export const LECTURER_DATA = 'LECTURER_DATA';
