@@ -34,9 +34,27 @@ const Lecturer = () => {
               <button className="btn btn-white btn-border btn-round mr-2"  type="button" data-toggle="modal" data-target="#exampleModal">
                 Create Class
               </button>
-              {/* <a href="/" className="btn btn-secondary btn-round">
-                Mark Attendance
-              </a> */}
+
+               {/* Modal  */}
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Create Class</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        the QR code
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Create</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
@@ -54,12 +72,6 @@ const Lecturer = () => {
                         <i className="fa fa-pencil"></i>
                       </span>
                       Export
-                    </a>
-                    <a href="/" className="btn btn-info btn-border btn-round btn-sm">
-                      <span className="btn-label">
-                        <i className="fa fa-print"></i>
-                      </span>
-                      Print
                     </a>
                   </div>
                 </div>
