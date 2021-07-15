@@ -10,16 +10,18 @@ const Lecturer = () => {
       <div className="panel-header bg-primary-gradient">
         <div className="page-inner py-5">
           <div className="d-flex align-items-left align-items-md-center flex-column flex-md-row">
-            <div>
+            <div className=" py-4">
               <h2 className="text-white pb-2 fw-bold">
-                Hi,{' '}
+                Hi,{' '} 
+                {/* {user && `${
+                    // stringToUpperCase(user.user.title)
+                }`}{ ` `} */}
                 {user &&
                   `${
                     stringToUpperCase(user.user.first_name) +
                     ' ' +
                     stringToUpperCase(user.user.last_name)
                   } `}{' '}
-                - {user && user.matric_no}
               </h2>
               <h5 className="text-white op-7 mb-2">
                 Faculty of {user && user.faculty.faculty_name}
@@ -29,12 +31,12 @@ const Lecturer = () => {
               </h5>
             </div>
             <div className="ml-md-auto py-2 py-md-0">
-              <a href="/" className="btn btn-white btn-border btn-round mr-2">
-                Join Class
-              </a>
-              <a href="/" className="btn btn-secondary btn-round">
+              <button className="btn btn-white btn-border btn-round mr-2"  type="button" data-toggle="modal" data-target="#exampleModal">
+                Create Class
+              </button>
+              {/* <a href="/" className="btn btn-secondary btn-round">
                 Mark Attendance
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
@@ -70,7 +72,7 @@ const Lecturer = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-4">
+          {/* <div className="col-md-4">
             <div className="card card-primary">
               <div className="card-header">
                 <div className="card-title">Attended</div>
@@ -85,9 +87,9 @@ const Lecturer = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
-        <div className="row row-card-no-pd">
+        {/* <div className="row row-card-no-pd">
           <div className="col-md-12">
             <div className="card">
               <div className="card-body">
@@ -104,7 +106,7 @@ const Lecturer = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
        </div>;

@@ -1,6 +1,10 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 import { stringToUpperCase } from '../../utils/stringModifier';
+
+
+
 
 const Sidebar = () => {
   const authContext = useContext(AuthContext);
@@ -60,28 +64,19 @@ const Sidebar = () => {
                 aria-expanded="false"
               >
                 <i className="fas fa-home"></i>
-                <p>Dashboard</p>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a data-toggle="collapse" href="#base">
-                <i className="fas fa-layer-group"></i>
-                <p>Class</p>
-                <span className="caret"></span>
+                <Link to="/dashboard"><p>Dashboard</p></Link>
               </a>
             </li>
             <li className="nav-item">
               <a data-toggle="collapse" href="#sidebarLayouts">
                 <i className="fas fa-th-list"></i>
-                <p>Attendance</p>
-                <span className="caret"></span>
+                <Link to="/attendance"><p>Attendance</p></Link>
               </a>
             </li>
             <li className="nav-item">
               <a data-toggle="collapse" href="#forms">
                 <i className="fas fa-pen-square"></i>
-                <p>Courses</p>
-                <span className="caret"></span>
+                 <Link to="/courses"><p>Courses</p></Link>
               </a>
             </li>
             <br />

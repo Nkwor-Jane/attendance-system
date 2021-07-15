@@ -29,12 +29,12 @@ const Student = () => {
               </h5>
             </div>
             <div className="ml-md-auto py-2 py-md-0">
-              <a href="/" className="btn btn-white btn-border btn-round mr-2">
+            <button className="btn btn-white btn-border btn-round mr-2"  type="button" data-toggle="modal" data-target="#exampleModal">
                 Join Class
-              </a>
-              <a href="/" className="btn btn-secondary btn-round">
+              </button>
+              {/* <a href="/" className="btn btn-secondary btn-round">
                 Mark Attendance
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@ const Student = () => {
             </div>
           </div>
         </div>
-        <div className="row row-card-no-pd">
+        {/* <div className="row row-card-no-pd">
           <div className="col-md-12">
             <div className="card">
               <div className="card-body">
@@ -104,7 +104,7 @@ const Student = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

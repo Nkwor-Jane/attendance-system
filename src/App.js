@@ -16,6 +16,11 @@ import Setup from './components/setup/Setup';
 import AppState from './context/app/AppState';
 import StudentState from './context/student/StudentState';
 import LecturerState from './context/lecturer/LecturerState';
+import Courses from './courses/Courses';
+import Attendance from './attendance/Attendance';
+
+
+
 
 if (localStorage.accessToken) setAuthToken(localStorage.accessToken);
 
@@ -36,6 +41,8 @@ const App = () => {
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/setup" component={Setup} />
+                    <PrivateRoute exact path="/courses"  component={Courses}/>
+                    <PrivateRoute exact path="/attendance" component={Attendance}/>
                     <Route component={Error} />
                   </Switch>
                   <Footer />
