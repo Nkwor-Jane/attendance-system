@@ -2,6 +2,8 @@ import React, { Fragment, useContext } from 'react';
 import AuthContext from '../../context/auth/authContext';
 import { stringToUpperCase } from '../../utils/stringModifier';
 
+import {Link} from 'react-router-dom';
+
 const Navbar = () => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated, user, logout } = authContext;
@@ -50,21 +52,15 @@ const Navbar = () => {
                           <p className="text-muted">
                             {user && `${stringToUpperCase(user.user.email)}`}
                           </p>
-                          <a href="/" className="btn btn-xs btn-secondary btn-sm">
-                            View Profile
-                          </a>
+                          <Link to="/profile">
+                            <button type="button" className="btn btn-xs btn-secondary btn-sm">
+                          View Profile
+                            </button>
+                          </Link>
                         </div>
                       </div>
                     </li>
                     <li>
-                      <div className="dropdown-divider"></div>
-                      <a className="dropdown-item" href="/">
-                        My Profile
-                      </a>
-                      {/* <div className="dropdown-divider"></div> */}
-                      {/* <a className="dropdown-item" href="/">
-                        Account Setting
-                      </a> */}
                       <div className="dropdown-divider"></div>
                       <button className="dropdown-item" href="/" onClick={(e) => logout()}>
                         Logout

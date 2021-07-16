@@ -37,19 +37,19 @@ const Sidebar = () => {
               <div className="collapse in" id="collapseExample">
                 <ul className="nav">
                   <li>
-                    <a href="#profile">
+                    <Link to="/profile">
                       <span className="link-collapse">My Profile</span>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#edit">
-                      <span className="link-collapse">Edit Profile</span>
-                    </a>
+                  <Link to="/edit">
+                    <span className="link-collapse">Edit Profile</span>
+                  </Link>
                   </li>
                   <li>
-                    <a href="#settings">
+                    <Link to="/settings">
                       <span className="link-collapse">Settings</span>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -57,27 +57,16 @@ const Sidebar = () => {
           </div>
           <ul className="nav nav-primary">
             <li className="nav-item active">
-              <a
-                data-toggle="collapse"
-                href="#dashboard"
-                className="collapsed"
-                aria-expanded="false"
-              >
                 <i className="fas fa-home"></i>
                 <Link to="/dashboard"><p>Dashboard</p></Link>
-              </a>
             </li>
             <li className="nav-item">
-              <a data-toggle="collapse" href="#sidebarLayouts">
                 <i className="fas fa-th-list"></i>
                 <Link to="/attendance"><p>Attendance</p></Link>
-              </a>
             </li>
             <li className="nav-item">
-              <a data-toggle="collapse" href="#forms">
                 <i className="fas fa-pen-square"></i>
                  <Link to="/courses"><p>Courses</p></Link>
-              </a>
             </li>
             <br />
             <br />
