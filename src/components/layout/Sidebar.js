@@ -1,6 +1,10 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 import { stringToUpperCase } from '../../utils/stringModifier';
+
+
+
 
 const Sidebar = () => {
   const authContext = useContext(AuthContext);
@@ -33,19 +37,19 @@ const Sidebar = () => {
               <div className="collapse in" id="collapseExample">
                 <ul className="nav">
                   <li>
-                    <a href="#profile">
+                    <Link to="/profile">
                       <span className="link-collapse">My Profile</span>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#edit">
-                      <span className="link-collapse">Edit Profile</span>
-                    </a>
+                  <Link to="/edit">
+                    <span className="link-collapse">Edit Profile</span>
+                  </Link>
                   </li>
                   <li>
-                    <a href="#settings">
+                    <Link to="/settings">
                       <span className="link-collapse">Settings</span>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -53,36 +57,16 @@ const Sidebar = () => {
           </div>
           <ul className="nav nav-primary">
             <li className="nav-item active">
-              <a
-                data-toggle="collapse"
-                href="#dashboard"
-                className="collapsed"
-                aria-expanded="false"
-              >
                 <i className="fas fa-home"></i>
-                <p>Dashboard</p>
-              </a>
+                <Link to="/dashboard"><p>Dashboard</p></Link>
             </li>
             <li className="nav-item">
-              <a data-toggle="collapse" href="#base">
-                <i className="fas fa-layer-group"></i>
-                <p>Class</p>
-                <span className="caret"></span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a data-toggle="collapse" href="#sidebarLayouts">
                 <i className="fas fa-th-list"></i>
-                <p>Attendance</p>
-                <span className="caret"></span>
-              </a>
+                <Link to="/attendance"><p>Attendance</p></Link>
             </li>
             <li className="nav-item">
-              <a data-toggle="collapse" href="#forms">
                 <i className="fas fa-pen-square"></i>
-                <p>Courses</p>
-                <span className="caret"></span>
-              </a>
+                 <Link to="/courses"><p>Courses</p></Link>
             </li>
             <br />
             <br />

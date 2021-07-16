@@ -29,12 +29,29 @@ const Student = () => {
               </h5>
             </div>
             <div className="ml-md-auto py-2 py-md-0">
-              <a href="/" className="btn btn-white btn-border btn-round mr-2">
+            <button className="btn btn-white btn-border btn-round mr-2"  type="button" data-toggle="modal" data-target="#exampleModal">
                 Join Class
-              </a>
-              <a href="/" className="btn btn-secondary btn-round">
-                Mark Attendance
-              </a>
+              </button>
+              <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="exampleModalLabel">Join class</h5>
+                      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div className="modal-body">
+                      the scanning stuff
+                      <p></p>
+                    </div>
+                    <div className="modal-footer">
+                      <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" className="btn btn-primary">Scan to Join</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -52,12 +69,6 @@ const Student = () => {
                         <i className="fa fa-pencil"></i>
                       </span>
                       Export
-                    </a>
-                    <a href="/" className="btn btn-info btn-border btn-round btn-sm">
-                      <span className="btn-label">
-                        <i className="fa fa-print"></i>
-                      </span>
-                      Print
                     </a>
                   </div>
                 </div>
@@ -87,7 +98,7 @@ const Student = () => {
             </div>
           </div>
         </div>
-        <div className="row row-card-no-pd">
+        {/* <div className="row row-card-no-pd">
           <div className="col-md-12">
             <div className="card">
               <div className="card-body">
@@ -104,7 +115,7 @@ const Student = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

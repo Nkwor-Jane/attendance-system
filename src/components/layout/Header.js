@@ -31,14 +31,12 @@ const Header = () => {
                 <i className="icon-menu"></i>
               </span>
             </button>
-            <button className="topbar-toggler more">
-              <i className="icon-options-vertical"></i>
-            </button>
             <div className="nav-toggle">
               <button className="btn btn-toggle toggle-sidebar">
                 <i className="icon-menu"></i>
               </button>
             </div>
+           
           </Fragment>
         )}
       </div>
