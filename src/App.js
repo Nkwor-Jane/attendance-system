@@ -16,14 +16,11 @@ import Setup from './components/setup/Setup';
 import AppState from './context/app/AppState';
 import StudentState from './context/student/StudentState';
 import LecturerState from './context/lecturer/LecturerState';
-import Courses from './components/routing/courses/Courses';
-import Settings from './components/routing/settings/Settings';
-import Attendance from './components/routing/attendance/Attendance';
-import Profile from './components/routing/profile/Profile';
-import Edit from './components/routing/edit/Edit';
-
-
-
+import Courses from './components/courses/Courses';
+import Settings from './components/settings/Settings';
+import Attendance from './components/attendance/Attendance';
+import Profile from './components/profile/Profile';
+import Edit from './components/profile/Edit';
 
 if (localStorage.accessToken) setAuthToken(localStorage.accessToken);
 
@@ -44,11 +41,11 @@ const App = () => {
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/setup" component={Setup} />
-                    <PrivateRoute exact path="/courses"  component={Courses}/>
-                    <PrivateRoute exact path="/attendance" component={Attendance}/>
-                    <PrivateRoute exact path="/settings" component={Settings}/>
-                    <PrivateRoute exact path="/profile" component={Profile}/>
-                    <PrivateRoute exact path="/edit" component={Edit}/>
+                    <PrivateRoute exact path="/courses" component={Courses} />
+                    <PrivateRoute exact path="/attendance" component={Attendance} />
+                    <PrivateRoute exact path="/settings" component={Settings} />
+                    <PrivateRoute exact path="/profile" component={Profile} />
+                    <PrivateRoute exact path="/edit" component={Edit} />
                     <Route component={Error} />
                   </Switch>
                   <Footer />

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import AuthContext from '../../context/auth/authContext';
-import Student from '../students/Student';
-import Lecturer from '../lecturers/Lecturer';
+import Student from '../student/Student';
+import Lecturer from '../lecturer/Lecturer';
 import AlertContext from '../../context/alert/alertContext';
 
 const Dashboard = (props) => {
