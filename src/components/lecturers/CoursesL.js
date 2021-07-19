@@ -3,7 +3,7 @@ const Courses = () => {
         <div className="mt-10 content">
         <div className="page-inner">
         <div className="row">  
-        <div className="col-md-8">
+        <div className="col-md-12">
         <div className="card">
           <div className="card-header">
             <div className="card-head-row">
