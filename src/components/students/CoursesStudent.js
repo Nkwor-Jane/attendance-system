@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CoursesS() {
+function CoursesStudent() {
     return (
         <div className="mt-10 content">
         <div className="page-inner">
@@ -26,4 +26,4 @@ function CoursesS() {
     )
 }
 
-export default CoursesS
+export default CoursesStudent;

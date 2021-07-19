@@ -1,7 +1,5 @@
-import React from 'react'
-
-export default function SettingsL() {
-    return (
+const CoursesLecturer = () => {
+    return ( 
         <div className="mt-10 content">
         <div className="page-inner">
         <div className="row">  
@@ -9,7 +7,7 @@ export default function SettingsL() {
         <div className="card">
           <div className="card-header">
             <div className="card-head-row">
-              <div className="card-title">Lecturer Settings</div>
+              <div className="card-title">Courses</div>
             </div>
           </div>
           <div className="card-body">
@@ -23,5 +21,7 @@ export default function SettingsL() {
         </div>
         </div>
     </div>
-    )
+     );
 }
+ 
+export default CoursesLecturer;

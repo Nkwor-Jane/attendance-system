@@ -5,7 +5,7 @@ import LecturerContext from '../../context/lecturer/lecturerContext';
 
 
 
-const EditL = () => {
+const EditLecturer = () => {
   const lecturerContext = useContext(LecturerContext);
   const { updateProfile } = lecturerContext;
 
@@ -85,4 +85,4 @@ const EditL = () => {
 
 
 
-export default  EditL;
+export default  EditLecturer;

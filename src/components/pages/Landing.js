@@ -13,11 +13,14 @@ const Landing = (props) => {
     }
     // eslint-disable-next-line
   }, [isAuthenticated, props.history]);
+
+
+  
   return (
     <div className="content">
       <div className="panel-header bg-primary-gradient" style={{ margin: '100px' }}>
-        <div className="page-inner py-5">
-          <div className="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+        <div className="page-inner py-5 landing-page">
+          <div className="d-flex align-items-left align-items-md-center flex-column flex-md-row my-landing-text">
             <div>
               <h2 className="text-white pb-2 fw-bold">Attendance Management System</h2>
               <h4 className="text-white op-7 mb-2">
@@ -29,8 +32,8 @@ const Landing = (props) => {
               </h4>
             </div>
           </div>
-          <div className="ml-md-auto py-2 py-md-0" style={{ marginTop: '150px' }}>
-            <Link to="/login" className="btn btn-white btn-border btn-round mr-2">
+          <div className="ml-md-auto py-2 py-md-0 btn-div" style={{ marginTop: '150px' }}>
+            <Link to="/login" className="btn btn-white btn-border btn-round mr-2 btn1">
               Login
             </Link>
             <Link to="/register" className="btn btn-secondary btn-round">

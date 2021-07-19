@@ -1,13 +1,18 @@
-const Courses = () => {
-    return ( 
+import React from 'react'
+
+function AttendanceLecturer() {
+    return (
         <div className="mt-10 content">
-        <div className="page-inner">
+            <div className="bg-primary-gradient py-2 px-3">
+            <h3 className="text-white p-2 fw-bold">Attendance Records</h3>
+            </div>
+            <div className="page-inner ">
         <div className="row">  
         <div className="col-md-12">
         <div className="card">
           <div className="card-header">
             <div className="card-head-row">
-              <div className="card-title">Courses</div>
+              <div className="card-title">Class List</div>
             </div>
           </div>
           <div className="card-body">
@@ -20,8 +25,8 @@ const Courses = () => {
       </div>
         </div>
         </div>
-    </div>
-     );
+        </div>
+    )
 }
- 
-export default Courses;
+
+export default AttendanceLecturer;

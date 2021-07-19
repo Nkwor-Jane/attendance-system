@@ -5,7 +5,7 @@ import StudentContext from '../../context/student/studentContext';
 
 
 
-const EditS = () => {
+const EditStudent = () => {
   const studentContext = useContext(StudentContext);
   const { updateProfile } = studentContext;
 
@@ -85,4 +85,4 @@ const EditS = () => {
 
 
 
-export default  EditS;
+export default  EditStudent;

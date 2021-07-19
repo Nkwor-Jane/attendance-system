@@ -1,8 +1,8 @@
 import React, {useContext, useEffect} from 'react';
-import AuthContext from '../context/auth/authContext';
+import AuthContext from '../../../context/auth/authContext';
 
-import SettingsL from '../components/lecturers/SettingsL';
-import SettingsS from '../components/students/SettingsS';
+import SettingsLecturer from '../../lecturers/SettingsLecturer';
+import SettingsStudent from '../../students/SettingsStudent';
 
 const Settings = (props) =>{
     const authContext = useContext(AuthContext);
@@ -13,7 +13,7 @@ const Settings = (props) =>{
             setRegistered(true);
         }
     })
-    return isAuthenticated && userType === 'student' ? <SettingsS/> : <SettingsL/>
+    return isAuthenticated && userType === 'student' ? <SettingsStudent/> : <SettingsLecturer/>
 }
 
 export default Settings;
