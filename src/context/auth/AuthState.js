@@ -25,6 +25,7 @@ const AuthState = (props) => {
     user: null,
     error: null,
     userType: localStorage.getItem('userType'),
+    student_id: localStorage.getItem('student_id'),
     registered: false,
   };
 
@@ -127,6 +128,8 @@ const AuthState = (props) => {
 
   // Clear Errors
   const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
+
+
 
   return (
     <AuthContext.Provider

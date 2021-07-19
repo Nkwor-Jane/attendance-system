@@ -32,11 +32,32 @@ const LecturerState = (props) => {
     }
   };
 
+// Update Lecturer Profile
+const updateProfile = async (formData) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      // Authorization: 'Bearer ' + defaultToken,
+    },
+  };
+  try {
+    const lecturer_id = localStorage.lecturer_id;
+    const res = await axios.put(`${url}/lecturer/${lecturer_id}`, formData, config);
+
+    dispatch({
+      type: LECTURER_DATA,
+      payload: res.data,
+    });
+  } catch (e) {
+    console.log(e.message);
+  }
+};
   return (
     <LecturerContext.Provider
       value={{
         lecturer: state.lecturer,
         createProfile,
+        updateProfile,
       }}
     >
       {props.children}

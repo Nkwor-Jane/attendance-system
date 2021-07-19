@@ -4,11 +4,11 @@ function AttendanceL() {
     return (
         <div className="mt-10 content">
             <div className="bg-primary-gradient py-2 px-3">
-            <h3 className="text-white pb-2 fw-bold"> Student Attendance</h3>
+            <h3 className="text-white p-2 fw-bold">Attendance Records</h3>
             </div>
             <div className="page-inner ">
         <div className="row">  
-        <div className="col-md-8">
+        <div className="col-md-12">
         <div className="card">
           <div className="card-header">
             <div className="card-head-row">
