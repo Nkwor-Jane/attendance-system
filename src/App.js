@@ -16,11 +16,11 @@ import Setup from './components/setup/Setup';
 import AppState from './context/app/AppState';
 import StudentState from './context/student/StudentState';
 import LecturerState from './context/lecturer/LecturerState';
-import Courses from './courses/Courses';
-import Settings from './settings/Settings';
-import Attendance from './attendance/Attendance';
-import Profile from './profile/Profile';
-import Edit from './edit/Edit';
+import Courses from './components/routing/courses/Courses';
+import Settings from './components/routing/settings/Settings';
+import Attendance from './components/routing/attendance/Attendance';
+import Profile from './components/routing/profile/Profile';
+import Edit from './components/routing/edit/Edit';
 
 
 

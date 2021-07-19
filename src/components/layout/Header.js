@@ -18,27 +18,27 @@ const Header = () => {
           </Link>
         )}
         {isAuthenticated && (
-          <Fragment>
-            <button
-              className="navbar-toggler sidenav-toggler ml-auto"
-              type="button"
-              data-toggle="collapse"
-              data-target="#switch"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-              aria-controls="switch"
-            >
-              <span className="navbar-toggler-icon">
-                <i className="icon-menu"></i>
-              </span>
-            </button>
-            <div className="nav-toggle" id="switch">
-              <button className="btn btn-toggle toggle-sidebar">
-                <i className="icon-menu"></i>
-              </button>
-            </div>
-           
-          </Fragment>
+              <Fragment>
+                  <button
+                    className="navbar-toggler sidenav-toggler ml-auto"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#switch"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                    aria-controls="switch"
+                  >
+                    <span className="navbar-toggler-icon">
+                      <i className="icon-menu"></i>
+                    </span>
+                  </button>
+                  <div className="collapse navbar-collapse" id="switch">
+                    <button className="btn btn-toggle toggle-sidebar">
+                      <i className="icon-menu"></i>
+                    </button>
+                  </div>
+            
+            </Fragment>
         )}
       </div>
       <Navbar />

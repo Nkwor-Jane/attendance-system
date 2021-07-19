@@ -1,8 +1,8 @@
 import React, {useContext, useEffect} from 'react';
-import AuthContext from '../context/auth/authContext';
+import AuthContext from '../../../context/auth/authContext';
 
-import AttendanceS from '../components/students/AttendanceS';
-import AttendanceL from '../components/lecturers/AttendanceL';
+import AttendanceStudent from '../../students/AttendanceStudent';
+import AttendanceLecturer from '../../lecturers/AttendanceLecturer';
 
 
 const Attendance = (props) =>{
@@ -14,7 +14,7 @@ const Attendance = (props) =>{
             setRegistered(true);
         }
     })
-    return isAuthenticated && userType === 'student' ? <AttendanceS/> : <AttendanceL/>
+    return isAuthenticated && userType === 'student' ? <AttendanceStudent/> : <AttendanceLecturer/>
 }
 
 export default Attendance;

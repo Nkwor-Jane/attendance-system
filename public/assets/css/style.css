@@ -23,3 +23,24 @@
 a {
   text-decoration: none !important;
 }
+
+
+@media only screen and (max-width: 450px){
+  .landing-page{
+    text-align: justify;
+
+  }
+  h2{
+    text-align: center;
+    padding-bottom: 5px;
+  }
+  .btn-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .btn1{
+    margin-bottom: 20px;
+  }
+}

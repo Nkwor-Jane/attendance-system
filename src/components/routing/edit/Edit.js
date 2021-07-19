@@ -1,8 +1,8 @@
 import React, {useContext, useEffect} from 'react';
-import AuthContext from '../context/auth/authContext';
+import AuthContext from '../../../context/auth/authContext';
 
-import EditL from '../components/lecturers/EditL';
-import EditS from '../components/students/EditS';
+import EditLecturer from '../../lecturers/EditLecturer';
+import EditStudent from '../../students/EditStudent';
 
 
 const Edit = (props) =>{
@@ -14,7 +14,7 @@ const Edit = (props) =>{
             setRegistered(true);
         }
     })
-    return isAuthenticated && userType === 'student' ? <EditS/> :<EditL/>
+    return isAuthenticated && userType === 'student' ? <EditStudent/> :<EditLecturer/>
 }
 
 

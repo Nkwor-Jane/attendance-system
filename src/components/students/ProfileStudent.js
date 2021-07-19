@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import AuthContext from '../../context/auth/authContext';
 import {stringToUpperCase} from '../../utils/stringModifier';
 
-export default function ProfileS() {
+export default function ProfileStudent() {
   const authContext = useContext(AuthContext);
   const { user } = authContext;
     return (

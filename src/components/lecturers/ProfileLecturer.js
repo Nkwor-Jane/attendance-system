@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import AuthContext from '../../context/auth/authContext';
 import {stringToUpperCase} from '../../utils/stringModifier';
 
-const ProfileL = () => {
+const ProfileLecturer = () => {
   const authContext = useContext(AuthContext);
   const { user } = authContext;
     return (
@@ -82,4 +82,4 @@ const ProfileL = () => {
     )
 }
 
-export default ProfileL
+export default ProfileLecturer;
