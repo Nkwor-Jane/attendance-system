@@ -13,7 +13,7 @@ const Navbar = () => {
       <nav className="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
         {isAuthenticated && (
           <div className="container-fluid">
-            {/* <ul className="navbar-nav topbar-nav ml-md-auto align-items-center">    
+            <ul className="navbar-nav topbar-nav ml-md-auto align-items-center">    
               <li className="nav-item dropdown hidden-caret">
                 <a
                   className="dropdown-toggle profile-pic"
@@ -69,7 +69,7 @@ const Navbar = () => {
                   </div>
                 </ul>
               </li>
-            </ul> */}
+            </ul>
           </div>
         )}
       </nav>
