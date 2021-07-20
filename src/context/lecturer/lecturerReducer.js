@@ -1,4 +1,4 @@
-import { LECTURER_DATA } from '../types';
+import { LECTURER_DATA, LECTURER_SETUP_FAIL } from '../types';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state, action) => {
@@ -7,6 +7,11 @@ export default (state, action) => {
       return {
         ...state,
         lecturer: action.payload,
+      };
+    case LECTURER_SETUP_FAIL:
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;

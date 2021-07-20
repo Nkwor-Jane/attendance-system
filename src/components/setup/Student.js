@@ -14,14 +14,20 @@ const Student = () => {
   const alertContext = useContext(AlertContext);
   const studentContext = useContext(StudentContext);
   const { faculties, departments, getFaculties, getDepartments, uploadUrl } = appContext;
-  const { createProfile } = studentContext;
+  const { createProfile, error } = studentContext;
   const { setLoading, loadUser, loading } = authContext;
+  const { setAlert } = alertContext;
 
   useEffect(() => {
     getFaculties();
     getDepartments();
+    if (error && error.error && error.error.message.matric_no) {
+      setAlert(error.error.message.matric_no, 'danger');
+    } else if (error) {
+      setAlert('Setup Failed, Please Try Again', 'danger');
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [error]);
 
   const {
     register,

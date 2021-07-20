@@ -14,14 +14,18 @@ const Lecturer = () => {
   const alertContext = useContext(AlertContext);
   const lecturerContext = useContext(LecturerContext);
   const { faculties, departments, getFaculties, getDepartments, uploadUrl } = appContext;
-  const { createProfile } = lecturerContext;
+  const { createProfile, error } = lecturerContext;
   const { setLoading, loadUser, loading } = authContext;
+  const { setAlert } = alertContext;
 
   useEffect(() => {
     getFaculties();
     getDepartments();
+    if (error) {
+      setAlert('Setup Failed, Please Try Again', 'danger');
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [error]);
 
   const {
     register,
