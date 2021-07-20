@@ -8,13 +8,12 @@ import ImageUpload from '../uploading/ImageUpload';
 import LecturerContext from '../../context/lecturer/lecturerContext';
 import AuthContext from '../../context/auth/authContext';
 
-
 const Lecturer = () => {
   const appContext = useContext(AppContext);
   const authContext = useContext(AuthContext);
   const alertContext = useContext(AlertContext);
   const lecturerContext = useContext(LecturerContext);
-  const { faculties, departments, getFaculties, getDepartments,  uploadUrl } = appContext;
+  const { faculties, departments, getFaculties, getDepartments, uploadUrl } = appContext;
   const { createProfile } = lecturerContext;
   const { setLoading, loadUser, loading } = authContext;
 
@@ -37,7 +36,7 @@ const Lecturer = () => {
     await createProfile(data);
     loadUser();
   };
-  
+
   return (
     <div className="content">
       <div
@@ -145,7 +144,7 @@ const Lecturer = () => {
                         <option value="engr">Engr.</option>
                       </select>
                       {errors.level && (
-                        <small className="form-text text-danger">Select Level</small>
+                        <small className="form-text text-danger">Select Title</small>
                       )}
                     </div>
                     <div className={`form-group ${errors.faculty && 'has-error'}`}>
@@ -210,7 +209,7 @@ const Lecturer = () => {
         </div>
       </div>
     </div>
-  );;
+  );
 };
 
 export default Lecturer;
