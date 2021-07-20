@@ -142,10 +142,10 @@ const Lecturer = () => {
                         })}
                       >
                         <option value="">Select Title</option>
-                        <option value="dr">Dr.</option>
-                        <option value="mr">Mr</option>
-                        <option value="mrs">Mrs</option>
-                        <option value="engr">Engr.</option>
+                        <option value="Dr.">Dr.</option>
+                        <option value="Mr.">Mr.</option>
+                        <option value="Mrs.">Mrs.</option>
+                        <option value="Engr.">Engr.</option>
                       </select>
                       {errors.level && (
                         <small className="form-text text-danger">Select Title</small>

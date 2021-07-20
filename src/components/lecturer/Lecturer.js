@@ -17,7 +17,7 @@ const Lecturer = () => {
                   {user &&
                     `${
                       stringToUpperCase(user.title) +
-                      '. ' +
+                      ' ' +
                       stringToUpperCase(user.user.first_name) +
                       ' ' +
                       stringToUpperCase(user.user.last_name)
