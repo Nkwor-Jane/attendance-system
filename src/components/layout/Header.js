@@ -5,12 +5,24 @@ import DefaultSidebar from './DefaultSidebar';
 import AuthContext from '../../context/auth/authContext';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+
+
+const Header = (props) => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated } = authContext;
 
+  const [click, setClick] = React.useState(false);
+
+//  const handleClick = () =>{
+
+//   }
+  //  const changeBg ={
+  //  backgroundColor: `${({ click }) => click ? 'yellow' : 'red'}`
+  //  }
+
+
   return (
-    <div className="main-header">
+    <div className="main-header ">
       <div className="logo-header" data-background-color="blue">
         {isAuthenticated && (
           <Link to="/" className="logo">
@@ -22,26 +34,35 @@ const Header = () => {
                   <button
                     className="navbar-toggler sidenav-toggler ml-auto"
                     type="button"
-                    data-toggle="collapse"
-                    data-target="#switch"
-                    aria-expanded="false"
+                    data-toggle="collapse" 
+                    data-target="collapse" 
+                    aria-expanded="false" 
                     aria-label="Toggle navigation"
-                    aria-controls="switch"
+                    // style={changeBg}
+                    click={click} onClick={() => setClick(!click)}
                   >
                     <span className="navbar-toggler-icon">
-                      <i className="icon-menu"></i>
+                      <i className="icon-menu"  ></i>
                     </span>
                   </button>
-                  <div className="collapse navbar-collapse" id="switch">
+                  
+                <button className="topbar-toggler more">
+                  <i className="icon-options-vertical"></i>
+                </button>
+                  <div className="nav-toggle">
                     <button className="btn btn-toggle toggle-sidebar">
                       <i className="icon-menu"></i>
                     </button>
+                </div>
+                  <div className="collapse navbar-collapse">
+                    <button className="btn btn-toggle">
+                      <i className="icon-menu"></i>
+                    </button>   
                   </div>
-            
             </Fragment>
         )}
       </div>
-      <Navbar />
+      <Navbar />   
       {isAuthenticated ? <Sidebar /> : <DefaultSidebar />}
     </div>
   );

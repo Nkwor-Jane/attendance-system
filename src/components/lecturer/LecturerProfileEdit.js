@@ -1,11 +1,16 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+// import AuthContext from '../../context/auth/authContext';
+// import { stringToUpperCase } from '../../utils/stringModifier'
 
 import LecturerContext from '../../context/lecturer/lecturerContext';
 
 const LecturerProfileEdit = () => {
+  // const authContext = useContext(AuthContext);
   const lecturerContext = useContext(LecturerContext);
   const { updateProfile } = lecturerContext;
+
+  // const { user } = authContext;
 
   const { register, handleSubmit } = useForm({ mode: 'all' });
   const onSubmit = async (data) => {
