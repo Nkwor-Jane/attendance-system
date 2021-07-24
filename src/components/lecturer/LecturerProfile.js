@@ -14,6 +14,9 @@ const LecturerProfile = () => {
               <div className="card-header">
                 <div className="card-head-row">
                   <h2 className="card-title fw-bold"> My Profile</h2>
+                  {/* <span style={{marginLeft:'50rem'}}>
+                  <button type="submit" className="btn btn-primary">Edit</button>
+                  </span> */}
                 </div>
               </div>
               <div className="card-body p-5">

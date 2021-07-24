@@ -6,13 +6,14 @@ import { stringToUpperCase } from '../../utils/stringModifier';
 
 
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   const authContext = useContext(AuthContext);
   const { user, logout } = authContext;
   return (
     <div className="sidebar sidebar-style-2">
-      <div className="sidebar-wrapper scrollbar scrollbar-inner">
-        <div className="sidebar-content">
+      			<div className="sidebar-background"></div>
+      <div className="">
+        <div className="navigation">
           <div className="user">
             <div className="avatar-sm float-left mr-2">
               <img src={user && user.user.photo} alt="..." className="avatar-img rounded-circle" />
@@ -35,18 +36,18 @@ const Sidebar = () => {
               <div className="clearfix"></div>
 
               <div className="collapse in" id="collapseExample">
-                <ul className="nav">
-                  <li>
+                <ul className="nav nav-info">
+                  <li className="nav-item">
                     <Link to="/profile">
                       <span className="link-collapse">My Profile</span>
                     </Link>
                   </li>
-                  <li>
+                  <li className="nav-item">
                   <Link to="/edit">
                     <span className="link-collapse">Edit Profile</span>
                   </Link>
                   </li>
-                  <li>
+                  <li className="nav-item">
                     <Link to="/settings">
                       <span className="link-collapse">Settings</span>
                     </Link>
@@ -55,7 +56,7 @@ const Sidebar = () => {
               </div>
             </div>
           </div>
-          <ul className="nav nav-primary">
+          <ul className="nav nav-primary" id="collapse">
             <li className="nav-item active">
                 <i className="fas fa-home"></i>
                 <Link to="/dashboard"><p>Dashboard</p></Link>
