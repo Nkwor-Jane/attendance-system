@@ -1,17 +1,15 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 import { stringToUpperCase } from '../../utils/stringModifier';
 
-
-
-
 const Sidebar = (props) => {
+  const urlPath = useLocation().pathname;
   const authContext = useContext(AuthContext);
   const { user, logout } = authContext;
   return (
     <div className="sidebar sidebar-style-2">
-      			<div className="sidebar-background"></div>
+      <div className="sidebar-background"></div>
       <div className="">
         <div className="navigation">
           <div className="user">
@@ -43,9 +41,9 @@ const Sidebar = (props) => {
                     </Link>
                   </li>
                   <li className="nav-item">
-                  <Link to="/edit">
-                    <span className="link-collapse">Edit Profile</span>
-                  </Link>
+                    <Link to="/edit">
+                      <span className="link-collapse">Edit Profile</span>
+                    </Link>
                   </li>
                   <li className="nav-item">
                     <Link to="/settings">
@@ -57,17 +55,23 @@ const Sidebar = (props) => {
             </div>
           </div>
           <ul className="nav nav-primary" id="collapse">
-            <li className="nav-item active">
-                <i className="fas fa-home"></i>
-                <Link to="/dashboard"><p>Dashboard</p></Link>
+            <li className={urlPath === '/dashboard' ? 'nav-item active' : 'nav-item'}>
+              <i className="fas fa-home"></i>
+              <Link to="/dashboard">
+                <p>Dashboard</p>
+              </Link>
             </li>
-            <li className="nav-item">
-                <i className="fas fa-th-list"></i>
-                <Link to="/attendance"><p>Attendance</p></Link>
+            <li className={urlPath === '/attendance' ? 'nav-item active' : 'nav-item'}>
+              <i className="fas fa-th-list"></i>
+              <Link to="/attendance">
+                <p>Attendance</p>
+              </Link>
             </li>
-            <li className="nav-item">
-                <i className="fas fa-pen-square"></i>
-                 <Link to="/courses"><p>Courses</p></Link>
+            <li className={urlPath === '/courses' ? 'nav-item active' : 'nav-item'}>
+              <i className="fas fa-pen-square"></i>
+              <Link to="/courses">
+                <p>Courses</p>
+              </Link>
             </li>
             <br />
             <br />

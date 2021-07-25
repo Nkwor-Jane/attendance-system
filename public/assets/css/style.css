@@ -9,6 +9,10 @@
   list-style: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 800px) {
   form input {
     width: 400px !important;
@@ -24,32 +28,29 @@ a {
   text-decoration: none !important;
 }
 
-
-@media only screen and (max-width: 450px){
-  .landing-page{
+@media only screen and (max-width: 450px) {
+  .landing-page {
     text-align: justify;
-
   }
-  h2{
+  h2 {
     text-align: center;
     padding-bottom: 5px;
   }
-  .btn-div{
+  .btn-div {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
   }
-  .btn1{
+  .btn1 {
     margin-bottom: 20px;
   }
 }
 
-
 /* Styles for tables in courses and attendance records */
 #title {
   text-align: center;
-  font-family:inherit;
+  font-family: inherit;
 }
 
 #students {
@@ -59,14 +60,19 @@ a {
   width: 100%;
 }
 
-#students td, #students th {
+#students td,
+#students th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#students tr:nth-child(even){background-color: #f2f2f2;}
+#students tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-#students tr:hover {background-color: #ddd;}
+#students tr:hover {
+  background-color: #ddd;
+}
 
 #students th {
   padding-top: 12px;
@@ -84,7 +90,6 @@ a {
     width: 50px;
   }
 } */
-
 
 /* .navigation{
   display: block;

@@ -8,6 +8,8 @@ import {
   SET_DATA_ERROR,
   SET_UPLOADING,
   SET_UPLOAD_URL,
+  LIST_COURSES,
+  SET_SUCCESS,
 } from '../types';
 import AppContext from './appContext';
 import setAuthToken from '../../utils/setAuthToken';
@@ -21,13 +23,15 @@ const AppState = (props) => {
   const defaultImage = process.env.REACT_APP_DEFAULT_PROFILE_IMAGE;
 
   const initialState = {
-    faculties: [],
-    departments: [],
+    faculties: JSON.parse(localStorage.getItem('faculties')),
+    departments: JSON.parse(localStorage.getItem('departments')),
     dataLoading: false,
     dataError: null,
     loading: false,
     uploading: false,
     uploadUrl: defaultImage,
+    courses: JSON.parse(localStorage.getItem('courses')),
+    success: false,
   };
 
   const [state, dispatch] = useReducer(AppReducer, initialState);
@@ -63,6 +67,19 @@ const AppState = (props) => {
       });
     } catch (e) {
       setDataError('Failed to Fetch Data, please reload page', 'department');
+    }
+  };
+
+  // Get list of courses
+  const getCourses = async () => {
+    try {
+      const res = await axios.get(`${url}/course`);
+      dispatch({
+        type: LIST_COURSES,
+        payload: res.data.data,
+      });
+    } catch (e) {
+      setDataError('Failed to Fetch Data, please reload page', 'course');
     }
   };
 
@@ -105,6 +122,14 @@ const AppState = (props) => {
     }
   };
 
+  //Set success - check if succes POST for different states
+  const setSuccess = (value) => {
+    dispatch({
+      type: SET_SUCCESS,
+      payload: value,
+    });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -115,11 +140,15 @@ const AppState = (props) => {
         loading: state.laoding,
         uploading: state.uploading,
         uploadUrl: state.uploadUrl,
+        courses: state.courses,
+        success: state.success,
         setDataLoading,
         getFaculties,
         getDepartments,
         uploadImage,
         setUploading,
+        getCourses,
+        setSuccess,
       }}
     >
       {props.children}

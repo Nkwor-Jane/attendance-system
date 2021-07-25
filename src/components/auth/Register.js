@@ -18,7 +18,7 @@ const Register = (props) => {
       props.history.push('/dashboard');
     }
 
-    if (error && error.error.message.email) {
+    if (error && error.error && error.error.message.email) {
       setAlert(error.error.message.email, 'danger');
     } else if (error) {
       setAlert('Registration Failed, Please Try Again', 'danger');

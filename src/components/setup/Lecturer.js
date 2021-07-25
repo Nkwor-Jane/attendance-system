@@ -8,21 +8,24 @@ import ImageUpload from '../uploading/ImageUpload';
 import LecturerContext from '../../context/lecturer/lecturerContext';
 import AuthContext from '../../context/auth/authContext';
 
-
 const Lecturer = () => {
   const appContext = useContext(AppContext);
   const authContext = useContext(AuthContext);
   const alertContext = useContext(AlertContext);
   const lecturerContext = useContext(LecturerContext);
-  const { faculties, departments, getFaculties, getDepartments,  uploadUrl } = appContext;
-  const { createProfile } = lecturerContext;
+  const { faculties, departments, getFaculties, getDepartments, uploadUrl } = appContext;
+  const { createProfile, error } = lecturerContext;
   const { setLoading, loadUser, loading } = authContext;
+  const { setAlert } = alertContext;
 
   useEffect(() => {
     getFaculties();
     getDepartments();
+    if (error) {
+      setAlert('Setup Failed, Please Try Again', 'danger');
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [error]);
 
   const {
     register,
@@ -37,7 +40,7 @@ const Lecturer = () => {
     await createProfile(data);
     loadUser();
   };
-  
+
   return (
     <div className="content">
       <div
@@ -139,13 +142,13 @@ const Lecturer = () => {
                         })}
                       >
                         <option value="">Select Title</option>
-                        <option value="dr">Dr.</option>
-                        <option value="mr">Mr</option>
-                        <option value="mrs">Mrs</option>
-                        <option value="engr">Engr.</option>
+                        <option value="Dr.">Dr.</option>
+                        <option value="Mr.">Mr.</option>
+                        <option value="Mrs.">Mrs.</option>
+                        <option value="Engr.">Engr.</option>
                       </select>
                       {errors.level && (
-                        <small className="form-text text-danger">Select Level</small>
+                        <small className="form-text text-danger">Select Title</small>
                       )}
                     </div>
                     <div className={`form-group ${errors.faculty && 'has-error'}`}>
@@ -210,7 +213,7 @@ const Lecturer = () => {
         </div>
       </div>
     </div>
-  );;
+  );
 };
 
 export default Lecturer;
