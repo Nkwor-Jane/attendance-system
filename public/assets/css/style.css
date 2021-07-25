@@ -29,12 +29,8 @@ a {
 }
 
 @media only screen and (max-width: 450px) {
-  .landing-page {
-    text-align: justify;
-  }
-  h2 {
-    text-align: center;
-    padding-bottom: 5px;
+  .landing-page{
+    
   }
   .btn-div {
     display: flex;
