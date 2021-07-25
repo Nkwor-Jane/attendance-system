@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 import { stringToUpperCase } from '../../utils/stringModifier';
 
-
-
-
 const Sidebar = () => {
+  const urlPath = useLocation().pathname;
   const authContext = useContext(AuthContext);
   const { user, logout } = authContext;
   return (
@@ -42,9 +40,9 @@ const Sidebar = () => {
                     </Link>
                   </li>
                   <li>
-                  <Link to="/edit">
-                    <span className="link-collapse">Edit Profile</span>
-                  </Link>
+                    <Link to="/edit">
+                      <span className="link-collapse">Edit Profile</span>
+                    </Link>
                   </li>
                   <li>
                     <Link to="/settings">
@@ -56,17 +54,23 @@ const Sidebar = () => {
             </div>
           </div>
           <ul className="nav nav-primary">
-            <li className="nav-item active">
-                <i className="fas fa-home"></i>
-                <Link to="/dashboard"><p>Dashboard</p></Link>
+            <li className={urlPath === '/dashboard' ? 'nav-item active' : 'nav-item'}>
+              <i className="fas fa-home"></i>
+              <Link to="/dashboard">
+                <p>Dashboard</p>
+              </Link>
             </li>
-            <li className="nav-item">
-                <i className="fas fa-th-list"></i>
-                <Link to="/attendance"><p>Attendance</p></Link>
+            <li className={urlPath === '/attendance' ? 'nav-item active' : 'nav-item'}>
+              <i className="fas fa-th-list"></i>
+              <Link to="/attendance">
+                <p>Attendance</p>
+              </Link>
             </li>
-            <li className="nav-item">
-                <i className="fas fa-pen-square"></i>
-                 <Link to="/courses"><p>Courses</p></Link>
+            <li className={urlPath === '/courses' ? 'nav-item active' : 'nav-item'}>
+              <i className="fas fa-pen-square"></i>
+              <Link to="/courses">
+                <p>Courses</p>
+              </Link>
             </li>
             <br />
             <br />

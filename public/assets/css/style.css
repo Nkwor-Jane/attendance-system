@@ -9,6 +9,10 @@
   list-style: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 800px) {
   form input {
     width: 400px !important;
@@ -24,23 +28,21 @@ a {
   text-decoration: none !important;
 }
 
-
-@media only screen and (max-width: 450px){
-  .landing-page{
+@media only screen and (max-width: 450px) {
+  .landing-page {
     text-align: justify;
-
   }
-  h2{
+  h2 {
     text-align: center;
     padding-bottom: 5px;
   }
-  .btn-div{
+  .btn-div {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
   }
-  .btn1{
+  .btn1 {
     margin-bottom: 20px;
   }
 }

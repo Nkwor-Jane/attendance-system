@@ -21,6 +21,9 @@ import Settings from './components/settings/Settings';
 import Attendance from './components/attendance/Attendance';
 import Profile from './components/profile/Profile';
 import Edit from './components/profile/Edit';
+import AttendanceCreate from './components/attendance/AttendanceCreate';
+import AttendanceClass from './components/attendance/AttendanceClass';
+import AttendanceClassList from './components/attendance/AttendanceClassList';
 
 if (localStorage.accessToken) setAuthToken(localStorage.accessToken);
 
@@ -46,6 +49,17 @@ const App = () => {
                     <PrivateRoute exact path="/settings" component={Settings} />
                     <PrivateRoute exact path="/profile" component={Profile} />
                     <PrivateRoute exact path="/edit" component={Edit} />
+                    <PrivateRoute exact path="/create-attendance" component={AttendanceCreate} />
+                    <PrivateRoute
+                      exact
+                      path="/attendance/:attendance_id"
+                      component={AttendanceClass}
+                    />
+                    <PrivateRoute
+                      exact
+                      path="/lecture/:lecture_id"
+                      component={AttendanceClassList}
+                    />
                     <Route component={Error} />
                   </Switch>
                   <Footer />
