@@ -86,9 +86,17 @@ a {
 } */
 
 
-/* .navigation{
+.navigation{
   display: block;
-  background-color: rebeccapurple;
+  /* background-color: rebeccapurple; */
   width: 250px;
   height: 100vh;
-} */
+}
+
+@media only screen and (max-width: 450px){
+  .navigation{
+    display:block;
+    width: 100%;
+
+  }
+}
