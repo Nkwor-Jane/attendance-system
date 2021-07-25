@@ -37,16 +37,15 @@ const StudentState = (props) => {
   };
 
   // Update Student Profile
-  const updateProfile = async (formData) => {
+  const updateProfile = async (userDetails) => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        // Authorization: 'Bearer ' + defaultToken,
       },
     };
     try {
       const student_id = localStorage.student_id;
-      const res = await axios.put(`${url}/student/${student_id}`, formData, config);
+      const res = await axios.put(`${url}/student/${student_id}`, userDetails, config);
 
       dispatch({
         type: STUDENT_DATA,

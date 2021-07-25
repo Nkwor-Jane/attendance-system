@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import AuthContext from '../../context/auth/authContext';
 import { stringToUpperCase } from '../../utils/stringModifier';
+import StudentProfileEdit from './StudentProfileEdit';
 
 export default function StudentProfile() {
   const authContext = useContext(AuthContext);
@@ -14,6 +15,7 @@ export default function StudentProfile() {
               <div className="card-header">
                 <div className="card-head-row">
                   <h2 className="card-title fw-bold"> My Profile</h2>
+                  <StudentProfileEdit/>
                 </div>
               </div>
               <div className="card-body p-5">
@@ -67,14 +69,14 @@ export default function StudentProfile() {
                       </span>
                     </h5>
                   </div>
-                  <div>
+                  {/* <div>
                     <p className=" op-5">Matric No.</p>
                     <h5 className="text-info op-7 mb-2 fw-bold">
                       <span className="user-level">
                         {/* {user && `${stringToUpperCase(user.user.matric_no)}`} */}
-                      </span>
+                      {/* </span>
                     </h5>
-                  </div>
+                  </div> */} 
                   <div>
                     <p className=" op-5">Phone No.</p>
                     <h5 className="text-info op-7 mb-2 fw-bold">
