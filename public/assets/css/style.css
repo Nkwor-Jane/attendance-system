@@ -29,9 +29,6 @@ a {
 }
 
 @media only screen and (max-width: 450px) {
-  .landing-page{
-    
-  }
   .btn-div {
     display: flex;
     align-items: center;
