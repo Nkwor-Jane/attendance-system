@@ -9,8 +9,9 @@ class LecturerCourses extends Component {
     super(props) 
     this.state = { 
        courses: [
-          { id: 1, coursetitle: 'Engineering Maths', coursecode: 'ECE 501' },
-          { id: 2, coursetitle:'Digital SIgnal Processing', coursecode: 'ECE 515'},
+          { id: 1, coursetitle: 'Fundamentals of Electrical Engineering 1', coursecode: 'ECE 201' },
+          { id: 2, coursetitle:'  Engineering Thermodynamics', coursecode: 'CPE 201'},
+          { id: 3, coursetitle:'Engineering Mathematics 1', coursecode: 'MEE 201'}
        ]
     }
  }

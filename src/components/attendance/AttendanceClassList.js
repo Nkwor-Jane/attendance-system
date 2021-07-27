@@ -84,7 +84,7 @@ const AttendanceClassList = (props) => {
                       </div>
                       {active === 1 && (
                         <a
-                          className="btn btn-secondary btn-lg pull-right"
+                          className="btn btn-primary btn-lg pull-right"
                           aria-disabled="true"
                           href={`${url}/qrcode/${qrdata}`}
                           role="button"
@@ -101,14 +101,14 @@ const AttendanceClassList = (props) => {
                       {active ? (
                         <p>
                           STATUS: <span style={{ color: 'green' }}>Active</span> <br />{' '}
-                          <button onClick={() => onUpdateClass(props.match.params.lecture_id, 0)}>
+                          <button onClick={() => onUpdateClass(props.match.params.lecture_id, 0)} className="btn btn-primary btn-round">
                             END CLASS
                           </button>
                         </p>
                       ) : (
                         <p>
-                          <span style={{ color: 'red' }}>NOT ACTIVE</span> <br />{' '}
-                          <button onClick={() => onUpdateClass(props.match.params.lecture_id, 1)}>
+                          <span style={{ color: 'red', marginBottom: '10px' }}>NOT ACTIVE</span> <br />{' '}
+                          <button onClick={() => onUpdateClass(props.match.params.lecture_id, 1)} className="btn btn-primary btn-border btn-round">
                             START CLASS
                           </button>
                         </p>

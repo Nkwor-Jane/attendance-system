@@ -62,7 +62,7 @@ const AttendanceClass = (props) => {
                       </div>
                     </div>
                   </div>
-                  <div className="card-body">
+                  <div className="card-body" >
                     {attendanceClass.length === 0 && (
                       <div>
                         <b style={{ color: 'red' }}>No Lectures Created... </b>
@@ -71,7 +71,7 @@ const AttendanceClass = (props) => {
                     {attendanceClass.length !== 0 &&
                       attendanceClass.map((data, key) => {
                         return (
-                          <div>
+                          <div key={attendance.id}> 
                             <h3>
                               Lecture {key + 1}:{' '}
                               {data.active ? (
@@ -82,9 +82,9 @@ const AttendanceClass = (props) => {
                             </h3>
                             <Link to={`/lecture/${data.id}`}>View Details</Link> .{' '}
                             {data.active ? (
-                              <button onClick={() => onUpdateClass(data.id, 0)}>End Class</button>
+                              <button onClick={() => onUpdateClass(data.id, 0)} className="btn btn-primary btn-roun">End Class</button>
                             ) : (
-                              <button onClick={() => onUpdateClass(data.id, 1)}>Start Class</button>
+                              <button onClick={() => onUpdateClass(data.id, 1)} className="btn btn-primary btn-border btn-round">Start Class</button>
                             )}
                             <br />
                             <br />
@@ -93,10 +93,11 @@ const AttendanceClass = (props) => {
                       })}
                     <br />
                     <button
-                      className="btn btn-secondary"
+                      className="btn btn-primary"
                       onClick={() => onCreateClass(props.match.params.attendance_id)}
                     >
-                      Create a Lecture
+                      <span><i className="flaticon-shapes"> Create a Lecture</i></span>
+                      
                     </button>
                   </div>
                 </Fragment>

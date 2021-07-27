@@ -11,7 +11,7 @@ const Sidebar = (props) => {
     <div className="sidebar sidebar-style-2">
       <div className="sidebar-background"></div>
       <div className="">
-        <div className="navigation">
+        <div className=" ">
           <div className="user">
             <div className="avatar-sm float-left mr-2">
               <img src={user && user.user.photo} alt="..." className="avatar-img rounded-circle" />
@@ -31,7 +31,7 @@ const Sidebar = (props) => {
                   <span className="caret"></span>
                 </span>
               </a>
-              <div className="clearfix"></div>
+              {/* <div className="clearfix"></div> */}
 
               <div className="collapse in" id="collapseExample">
                 <ul className="nav nav-info">

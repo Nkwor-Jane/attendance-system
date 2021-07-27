@@ -29,13 +29,6 @@ a {
 }
 
 @media only screen and (max-width: 450px) {
-  .landing-page {
-    text-align: justify;
-  }
-  h2 {
-    text-align: center;
-    padding-bottom: 5px;
-  }
   .btn-div {
     display: flex;
     align-items: center;
@@ -81,19 +74,3 @@ a {
   background-color: #1572e8;
   color: white;
 }
-/* @media only screen and (max-width: 450px){
-  .students tbody{
-    width: 50px;
-    background-color: yellow;
-  }
-  #students tr{
-    width: 50px;
-  }
-} */
-
-/* .navigation{
-  display: block;
-  background-color: rebeccapurple;
-  width: 250px;
-  height: 100vh;
-} */

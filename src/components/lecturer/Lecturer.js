@@ -104,7 +104,7 @@ const Lecturer = () => {
               <div className="card">
                 <div className="card-header">
                   <div className="card-head-row">
-                    <div className="card-title" style={{ color: 'red' }}>
+                    <div className="card-title fw-bold" style={{ color: '#1572e8' }}>
                       Attendance List
                     </div>
                     {/* <div className="card-tools">
@@ -131,7 +131,7 @@ const Lecturer = () => {
                       <br />
                       {attendance.map((attendance) => {
                         return (
-                          <p>
+                          <p key={attendance.id}>
                             <b>
                               {attendance.academic_session} - {attendance.semester}
                             </b>{' '}

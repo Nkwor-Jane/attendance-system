@@ -11,16 +11,6 @@ const Header = (props) => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated } = authContext;
 
-  const [click, setClick] = React.useState(false);
-
-//  const handleClick = () =>{
-
-//   }
-  //  const changeBg ={
-  //  backgroundColor: `${({ click }) => click ? 'yellow' : 'red'}`
-  //  }
-
-
   return (
     <div className="main-header ">
       <div className="logo-header" data-background-color="blue">
@@ -31,6 +21,18 @@ const Header = (props) => {
         )}
         {isAuthenticated && (
               <Fragment>
+                    {/* <div className="burger">
+                        <div className="span">
+                          
+                        </div>
+                        <div className="span">
+                          
+                        </div>
+                        <div className="span">
+                          
+                        </div>
+                    </div> */}
+
                   <button
                     className="navbar-toggler sidenav-toggler ml-auto"
                     type="button"
@@ -38,8 +40,6 @@ const Header = (props) => {
                     data-target="collapse" 
                     aria-expanded="false" 
                     aria-label="Toggle navigation"
-                    // style={changeBg}
-                    click={click} onClick={() => setClick(!click)}
                   >
                     <span className="navbar-toggler-icon">
                       <i className="icon-menu"  ></i>
@@ -53,12 +53,12 @@ const Header = (props) => {
                     <button className="btn btn-toggle toggle-sidebar">
                       <i className="icon-menu"></i>
                     </button>
-                </div>
-                  <div className="collapse navbar-collapse">
+                </div> 
+                   {/* <div className="collapse navbar-collapse">
                     <button className="btn btn-toggle">
                       <i className="icon-menu"></i>
                     </button>   
-                  </div>
+                  </div> */}
             </Fragment>
         )}
       </div>
