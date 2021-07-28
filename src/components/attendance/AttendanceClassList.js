@@ -120,12 +120,14 @@ const AttendanceClassList = (props) => {
                         <b>No Student for this class yet, Start Class and Generate QR</b>
                       ) : (
                         <div>
-                          <table>
-                            <tr style={{ border: '1px solid black', margin: '10px' }}>
-                              <td>Matric Number</td>
-                              <td>Name</td>
-                              <td>Level</td>
-                            </tr>
+                          <table id='students'>
+                            <tbody>
+                              <tr style={{ border: '1px solid black', margin: '10px' }}>
+                                <td>Matric Number</td>
+                                <td>Name</td>
+                                <td>Level</td>
+                              </tr>
+                            </tbody>
                             {attendanceStudents.map((students) => {
                               return (
                                 <tr>

@@ -1,49 +1,52 @@
-import React, { Component} from 'react'
+import React from 'react'
+// import { stringToUpperCase } from '../../utils/stringModifier';
+// import AppContext from '../../context/app/appContext';
+// import LecturerContext from '../../context/lecturer/lecturerContext';
 
 
-class LecturerAttendance extends Component {
+const LecturerAttendance = (props) =>{
+
+//   const lecturerContext = useContext(LecturerContext);
+//   const appContext = useContext(AppContext);
+//   const {
+//     attendanceClass,
+//     getAttendanceClass,
+//     getStudentAttendanceClass,
+//     updateAttendanceClass,
+//     attendanceStudents,
+//   } = lecturerContext;
+
+//   const { courses, faculties, departments } = appContext;
+
+//  useEffect(() => {
+//   getAttendanceClass(localStorage.getItem('attendanceClass'));
+//   getStudentAttendanceClass(props.match.params.lecture_id);
+//   // eslint-disable-next-line react-hooks/exhaustive-deps
+// }, []);
 
 
-  constructor(props) {
-    super(props)
-    this.state = { 
-       courses: [
-          { id: 1, matricno: 150211121, studentname: 'Peter Godwin', percentage : 50},
-          { id: 2, matricno: 150211122, studentname: 'Omolara Kemi', percentage : 70},
-          { id: 3, matricno: 150211123, studentname: 'Nkwor Jane', percentage : 70},
-          { id: 4, matricno: 150211124, studentname: 'Victor Issah', percentage : 50},
-          { id: 5, matricno: 150211125, studentname: 'Aisha Ola', percentage : 70},
-          { id: 6, matricno: 150211126, studentname: 'Mercy Chukwudi', percentage : 70},
-          { id: 7, matricno: 150211127, studentname: 'Hassan Mohammed', percentage : 70},
-          { id: 8, matricno: 150211128, studentname: 'Janet Chisom', percentage : 50},
-    
-       ]
-    }
- }
 
+//  renderTableData() {
+//   return this.state.courses.map((course, index) => {
+//      const { id, matricno, studentname, percentage } = course //destructuring
+//      return (
+//         <tr key={id}>
+//            <td>{id}</td>
+//            <td>{matricno}</td>
+//            <td>{studentname}</td>
+//            <td>{percentage}</td>
+//         </tr>
+//      )
+//   })
+// }
 
- renderTableData() {
-  return this.state.courses.map((course, index) => {
-     const { id, matricno, studentname, percentage } = course //destructuring
-     return (
-        <tr key={id}>
-           <td>{id}</td>
-           <td>{matricno}</td>
-           <td>{studentname}</td>
-           <td>{percentage}</td>
-        </tr>
-     )
-  })
-}
+// renderTableHeader() {
+//   let header = Object.keys(this.state.courses[0])
+//   return header.map((key, index) => {
+//      return <th key={index}>{key.toUpperCase()}</th>
+//   })
+// }
 
-renderTableHeader() {
-  let header = Object.keys(this.state.courses[0])
-  return header.map((key, index) => {
-     return <th key={index}>{key.toUpperCase()}</th>
-  })
-}
-
-  render(){
 
 
   return (
@@ -61,13 +64,34 @@ renderTableHeader() {
               </div>
               <div className="card-body">
                 <div className="chart-container" style={{ minHeight: '375px' }}>
-                    <div className="table table-head-bg-success mb-3">
-                    <table id='students'>
-                        <tbody>
-                          <tr>{this.renderTableHeader()}</tr>
-                          {this.renderTableData()}
-                        </tbody>
-                    </table>
+                <div style={{ margin: 'auto', marginTop: '50px' }}>
+                      {/* {attendanceStudents.length === 0 ? (
+                        <b>No Student for this class yet, Start Class and Generate QR</b>
+                      ) : (
+                        <div>
+                          <table id='students'>
+                            <tbody>
+                              <tr style={{ border: '1px solid black', margin: '10px' }}>
+                                <td>Matric Number</td>
+                                <td>Name</td>
+                                <td>Level</td>
+                              </tr>
+                            </tbody>
+                            {attendanceStudents.map((students) => {
+                              return (
+                                <tr>
+                                  <td>{students.student.matric_no}</td>
+                                  <td>
+                                    {stringToUpperCase(students.user.first_name)}{' '}
+                                    {stringToUpperCase(students.user.last_name)}
+                                  </td>
+                                  <td>{students.student.level}</td>
+                                </tr>
+                              );
+                            })} */}
+                          {/* </table>
+                        </div>
+                      )} */}
                     </div>
                 </div>
                 <div id="myChartLegend"></div>
@@ -78,7 +102,6 @@ renderTableHeader() {
       </div>
     </div>
   );
-}
 };
 
 export default LecturerAttendance;
